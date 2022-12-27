@@ -1,11 +1,6 @@
 #pragma once
 #include "Contact.hpp"
 
-std::string Contact::getFirstName()
-{
-	return this->firstName;
-}
-
 std::string Contact::getLastName()
 {
 	return this->lastName;
