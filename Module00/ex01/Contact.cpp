@@ -1,4 +1,3 @@
-#pragma once
 #include "Contact.hpp"
 
 std::string Contact::getFirstName()

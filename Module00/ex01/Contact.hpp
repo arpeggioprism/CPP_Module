@@ -1,16 +1,17 @@
 #pragma once
-#include "PhoneBook.hpp"
+#include <iomanip>
+#include <iostream>
 
 class Contact
 {
-	private:
+private:
 	std::string firstName;
 	std::string lastName;
 	std::string nickName;
 	std::string phoneNumber;
 	std::string darkestSecret;
 
-	public:
+public:
 	std::string getFirstName();
 	std::string getLastName();
 	std::string getNickName();
@@ -19,12 +20,11 @@ class Contact
 
 	Contact();
 	Contact(std::string fname, std::string lname, std::string nname, \
-std::string pnumber, std::string dsecret);
+	std::string pnumber, std::string dsecret);
 
 	void setFirstName(std::string firstName);
 	void setLastName(std::string lastName);
 	void setNickName(std::string nickName);
 	void setPhoneNumber(std::string phoneNumber);
 	void setDarkestSecret(std::string darkestSecret);
-
 };

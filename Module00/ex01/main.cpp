@@ -12,14 +12,14 @@ int main(void)
 	Contact		contact;
 
 	while (1)
-	{ 
-		std::cout << "#############################" << std::endl;
-		std::cout << "#   Select:                 #" << std::endl;
-		std::cout << "#   [1] Add a contact       #" << std::endl;
-		std::cout << "#   [2] Search contacts     #" << std::endl;
-		std::cout << "#   [3] Exit                #" << std::endl;
-		std::cout << "#############################" << std::endl;
-		std::cout << "input: ";
+	{
+		std::cout << "#############################" << std::endl
+				  << "#   Select:                 #" << std::endl
+				  << "#   [1] Add a contact       #" << std::endl
+				  << "#   [2] Search a contact    #" << std::endl
+				  << "#   [3] Exit                #" << std::endl
+				  << "#############################" << std::endl
+				  << "input: ";
 		std::cin >> choice;
 		if (std::cin.fail())
 		{
