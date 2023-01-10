@@ -1,0 +1,7 @@
+class HumanA
+{
+private:
+
+public:
+	
+};
