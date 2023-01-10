@@ -1,4 +1,4 @@
-NAME = zombie
+NAME = MoarBrainz!
 
 SRCS = Zombie.cpp main.cpp zombieHorde.cpp
 
@@ -21,4 +21,4 @@ fclean : clean
 
 re : fclean all
 
-.PHONY : all clean fclean re $(NAME)
+.PHONY : all clean fclean re

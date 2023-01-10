@@ -1,8 +1,8 @@
+NAME = HiThisIsBrain
+
 CPPFILES = main.cpp
 
 CPPCOMPILER = c++
-
-NAME = brain
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
@@ -16,3 +16,5 @@ clean :
 fclean : clean
 	-@rm -rf $(NAME)
 re : fclean $(NAME)
+
+.PHONY: all clean fclean re

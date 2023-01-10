@@ -109,6 +109,6 @@ void Account::displayStatus(void) const
 
 void Account::_displayTimestamp()
 {
-	time_t seconds = std::time(nullptr);
+	time_t seconds = std::time(NULL);
 	std::cout << std::put_time(std::localtime(&seconds), "[%Y%m%d_%H%M%S] ");
 }

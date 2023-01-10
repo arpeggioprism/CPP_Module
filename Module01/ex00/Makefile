@@ -1,4 +1,4 @@
-NAME = zombie
+NAME = BraiiiiiiinnnzzzZ
 
 SRCS = Zombie.cpp main.cpp newZombie.cpp
 
@@ -21,4 +21,4 @@ fclean : clean
 
 re : fclean all
 
-.PHONY : all clean fclean re $(NAME)
+.PHONY : all clean fclean re
