@@ -2,7 +2,7 @@
 #include <iomanip>
 #include <iostream>
 
-class Contact
+class	Contact
 {
 private:
 	std::string firstName;

@@ -1,5 +1,15 @@
 #include "PhoneBook.hpp"
 
+bool	isEmptyFields(const std::string &s)
+{
+	if (s == "")
+	{
+		std::cout << "can't have empty fields" << std::endl;
+		return 1;
+	}
+	return 0;
+}
+
 int main(void)
 {
 	int			choice;
@@ -33,18 +43,28 @@ int main(void)
 				std::cin.ignore();
 				std::cout << "Enter the first name: ";
 				getline(std::cin, firstName);
+				if (isEmptyFields(firstName))
+					continue ;
 				contact.setFirstName(firstName);
 				std::cout << "Enter the last name: ";
 				getline(std::cin, lastName);
+				if (isEmptyFields(lastName))
+					continue ;
 				contact.setLastName(lastName);
 				std::cout << "Enter the nickname: ";
 				getline(std::cin, nickName);
+				if (isEmptyFields(nickName))
+					continue ;
 				contact.setNickName(nickName);
 				std::cout << "Enter the phone number: ";
 				getline(std::cin, phoneNumber);
+				if (isEmptyFields(phoneNumber))
+					continue ;
 				contact.setPhoneNumber(phoneNumber);
 				std::cout << "Enter the darkest secret: ";
 				getline(std::cin, darkestSecret);
+				if (isEmptyFields(darkestSecret))
+					continue ;
 				contact.setDarkestSecret(darkestSecret);
 				phoneBook.add(contact);
 				break ;
