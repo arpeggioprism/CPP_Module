@@ -33,7 +33,7 @@ void PhoneBook::search()
 	}
 	std::cout << "INDEX : ";
 	std::cin >> index;
-	if (-1 < index && index < contactCount)
+	if (-1 < index && index < limit)
 	{
 		std::cout << "FIRST NAME: " << this->contacts[index].getFirstName() << std::endl
 		<< "LAST NAME : " << this->contacts[index].getLastName() << std::endl
