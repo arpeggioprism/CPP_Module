@@ -1,4 +1,4 @@
-NAME = HiThisIsBrain
+NAME = hiThisIsBrain
 
 CPPFILES = main.cpp
 
@@ -7,6 +7,8 @@ CPPCOMPILER = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
 OBJS = $(CPPFILES:.cpp=.o)
+
+all : $(NAME)
 
 $(NAME): $(OBJS)
 	$(CPPCOMPILER) $(CPPFLAGS) $(OBJS) -o $(NAME)

@@ -1,16 +1,16 @@
-NAME = unnecessaryViolence
-
-CPPFILES = main.cpp HumanA.cpp HumanB.cpp Weapon.cpp
+CPPFILES = main.cpp Harl.cpp
 
 CPPCOMPILER = c++
 
-INC = HumanA.hpp HumanB.hpp Weapon.hpp
+NAME = harl2.0
+
+INC = Harl.hpp
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-all : $(NAME)
-
 OBJS = $(CPPFILES:.cpp=.o)
+
+all : $(NAME)
 
 $(NAME): $(OBJS) $(INC)
 	$(CPPCOMPILER) $(CPPFLAGS) $(OBJS) -o $(NAME)

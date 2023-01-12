@@ -1,4 +1,4 @@
-NAME = MoarBrainz!
+NAME = moarBrainz!
 
 SRCS = Zombie.cpp main.cpp zombieHorde.cpp
 
