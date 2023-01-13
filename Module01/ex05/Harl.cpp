@@ -27,10 +27,10 @@ void Harl::complain(std::string level)
 
 	switch (level[0])
 	{
-		case 'd': (this->*fp[0])(); break;
-		case 'i': (this->*fp[1])(); break;
-		case 'w': (this->*fp[2])(); break;
-		case 'e': (this->*fp[3])(); break;
-		default :					break;
+		case 'd': if (level == "debug")		(this->*fp[0])();	break;
+		case 'i': if (level == "info")		(this->*fp[1])();	break;
+		case 'w': if (level == "warning")	(this->*fp[2])();	break;
+		case 'e': if (level == "error") 	(this->*fp[3])();	break;
+		default :												break;
 	}
 }
