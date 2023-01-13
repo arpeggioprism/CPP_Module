@@ -2,18 +2,18 @@
 
 int main()
 {
-	Harl h;
+	Harl harl;
 
-    std::cout << "debug :" << std::endl;
-    h.complain("debug");
-    std::cout << "info :" << std::endl;
-    h.complain("info");
-    std::cout << "warning :" << std::endl;
-    h.complain("warning");
-    std::cout << "error :" << std::endl;
-    h.complain("error");
-    std::cout << "invalid :" << std::endl;
-    h.complain("invalid");		
+    std::cout << "DEBUG: ";
+    harl.complain("DEBUG");
+    std::cout << "INFO: ";
+    harl.complain("INFO");
+    std::cout << "WARNING: ";
+    harl.complain("WARNING");
+    std::cout << "ERROR: ";
+    harl.complain("ERROR");
+    std::cout << "INVALID: ";
+    harl.complain("INVALID");		
 
 	return 0;
 }

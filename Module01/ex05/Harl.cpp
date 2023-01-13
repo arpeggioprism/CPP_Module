@@ -23,14 +23,14 @@ void Harl::error(void)
 
 void Harl::complain(std::string level)
 {
-	void (Harl::*fp[4])(void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+	static void (Harl::*fp[4])(void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
 
 	switch (level[0])
 	{
-		case 'd': if (level == "debug")		(this->*fp[0])();	break;
-		case 'i': if (level == "info")		(this->*fp[1])();	break;
-		case 'w': if (level == "warning")	(this->*fp[2])();	break;
-		case 'e': if (level == "error") 	(this->*fp[3])();	break;
-		default :												break;
+		case 'D': 	if (level == "DEBUG")	(this->*fp[0])();	break;
+		case 'I': 	if (level == "INFO")	(this->*fp[1])();	break;
+		case 'W': 	if (level == "WARNING")	(this->*fp[2])();	break;
+		case 'E': 	if (level == "ERROR") 	(this->*fp[3])();	break;
+		default :	break;
 	}
 }
