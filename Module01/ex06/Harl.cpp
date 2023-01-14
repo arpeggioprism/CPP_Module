@@ -31,10 +31,10 @@ void Harl::complain(std::string level)
 
 	switch (level[0])
 	{
-		case 'D':	if (flag == 1	||	level == "DEBUG"	)	{(this->*fp[0])();	flag = 1;}
-		case 'I':	if (flag == 1	||	level == "INFO"		)	{(this->*fp[1])();	flag = 1;}
-		case 'W':	if (flag == 1	||	level == "WARNING"	)	{(this->*fp[2])();	flag = 1;}
-		case 'E':	if (flag == 1	||	level == "ERROR"	)	{(this->*fp[3])();	flag = 1;}	break;
+		case 'D':	if (	flag == 1	||	level == "DEBUG"	)	{(this->*fp[0])();	flag = 1;}
+		case 'I':	if (	flag == 1	||	level == "INFO"		)	{(this->*fp[1])();	flag = 1;}
+		case 'W':	if (	flag == 1	||	level == "WARNING"	)	{(this->*fp[2])();	flag = 1;}
+		case 'E':	if (	flag == 1	||	level == "ERROR"	)	{(this->*fp[3])();	flag = 1;}	break;
 		default :	std::cout << \
 		"[ Probably complaining about insignificant problems ]" << std::endl; break;
 	}
