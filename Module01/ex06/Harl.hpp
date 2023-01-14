@@ -1,7 +1,6 @@
 #pragma once
-#include <string>
 #include <iostream>
-
+#include <string>
 
 class Harl
 {
@@ -10,10 +9,8 @@ private:
 	void info(void);
 	void warning(void);
 	void error(void);
-
 public:
 	Harl();
 	~Harl();
 	void complain(std::string level);
 };
-
