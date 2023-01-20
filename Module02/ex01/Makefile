@@ -1,4 +1,4 @@
-NAME = a.out
+NAME = towardsAMoreUsefulFixed-PointNumberClass
 
 SRC = main.cpp Fixed.cpp
 

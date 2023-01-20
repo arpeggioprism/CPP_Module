@@ -1,10 +1,5 @@
 #include "Fixed.hpp"
-
-#include <cmath> // roundf
-
-/*
-** ------------------------------- CONSTRUCTOR --------------------------------
-*/
+#include <cmath>
 
 Fixed::Fixed() : _fixedPointValue(0)
 {
@@ -25,19 +20,10 @@ Fixed::Fixed(const int n) : _fixedPointValue(n << _fractionalBits)
 Fixed::Fixed(const float n)
     : _fixedPointValue(roundf(n * (1 << _fractionalBits)))
 {
-    std::cout << "roundf: " << _fractionalBits << std::end;
     std::cout << "Float constructor called" << std::endl;
 }
 
-/*
-** -------------------------------- DESTRUCTOR --------------------------------
-*/
-
 Fixed::~Fixed() { std::cout << "Destructor called" << std::endl; }
-
-/*
-** --------------------------------- OVERLOAD ---------------------------------
-*/
 
 Fixed &Fixed::operator=(Fixed const &rhs)
 {
@@ -48,29 +34,26 @@ Fixed &Fixed::operator=(Fixed const &rhs)
 
 std::ostream &operator<<(std::ostream &o, Fixed const &rhs)
 {
-    std::cout << std::endl;
-    std::cout << "bit shift!" << std::endl;
     o << rhs.toFloat();
     return o;
 }
-
-/*
-** --------------------------------- METHODS ----------------------------------
-*/
 
 float Fixed::toFloat(void) const
 {
     return static_cast<float>(_fixedPointValue) / (1 << _fractionalBits);
 }
 
-int Fixed::toInt(void) const { return _fixedPointValue >> _fractionalBits; }
+int Fixed::toInt(void) const
+{
+    return _fixedPointValue >> _fractionalBits;
+}
 
-/*
-** --------------------------------- ACCESSOR ---------------------------------
-*/
+int Fixed::getRawBits(void) const
+{
+    return _fixedPointValue;
+}
 
-int Fixed::getRawBits(void) const { return _fixedPointValue; }
-
-void Fixed::setRawBits(int const raw) { _fixedPointValue = raw; }
-
-/* ************************************************************************** */
+void Fixed::setRawBits(int const raw)
+{
+    _fixedPointValue = raw;
+}

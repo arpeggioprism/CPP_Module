@@ -11,25 +11,17 @@ private:
 
 public:
     Fixed();
-    Fixed(Fixed const &src); // copy constructor
-    Fixed(const int n);     // A constructor takes a constant integer as a parameter.
-                          // It converts it to the corresponding fixed-point value.
-    Fixed(const float n); // A constructor takes a constant floating-point
-                          // number as a parameter. It converts it to the
-                          // corresponding fixed-point value.
-
     ~Fixed();
+    Fixed(Fixed const &src);
+    Fixed(const int n);
+    Fixed(const float n);
 
-    Fixed &operator=(Fixed const &rhs); // Copy assignation operator
+    Fixed &operator=(Fixed const &rhs);
 
-    float toFloat(void) const; // A member function that converts the
-                               // fixed-point value to a floating-point number.
-    int toInt(void) const;     // A member function that converts the fixed-point
-                               // value to an integer value.
-
-    int getRawBits(void) const;
-    void setRawBits(int const raw);
-
+    float   toFloat(void) const;
+    int     toInt(void) const;
+    int     getRawBits(void) const;
+    void    setRawBits(int const raw);
 };
 
 std::ostream &operator<<(std::ostream &o, Fixed const &rhs);
