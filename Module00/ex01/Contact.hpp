@@ -1,4 +1,6 @@
-#pragma once
+#ifndef CONTACT_HPP
+#define CONTACT_HPP
+
 #include <iomanip>
 #include <iostream>
 
@@ -28,3 +30,4 @@ public:
 	void setPhoneNumber(std::string phoneNumber);
 	void setDarkestSecret(std::string darkestSecret);
 };
+#endif

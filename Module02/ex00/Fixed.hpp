@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FIXED_HPP
+#define FIXED_HPP
 #include <iostream>
 
 class Fixed
@@ -18,3 +19,4 @@ public:
     void setRawBits(int const raw);
         // sets the raw value of the fixed-point number
 };
+#endif
