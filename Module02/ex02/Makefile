@@ -1,4 +1,4 @@
-NAME = a.out
+NAME = nowWeReTalking
 
 SRC = main.cpp \
 	  Fixed.cpp
