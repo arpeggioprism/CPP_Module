@@ -1,9 +1,10 @@
 #include "FragTrap.hpp"
 
-int main(void) {
-    FragTrap yubchoi("yubchoi");
+int main(void)
+{
+    FragTrap harry("harry");
 
-    std::cout << "\n===============test1===============" << std::endl;
-    yubchoi.highFivesGuys();
+    std::cout << "\n\n--------highFivesGuysTest--------" << std::endl;
+    harry.highFivesGuys();
     std::cout << std::endl;
 }
