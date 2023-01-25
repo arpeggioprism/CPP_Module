@@ -8,6 +8,8 @@ OBJS = $(CPPFILES:.cpp=.o)
 
 NAME = megaphone
 
+all : $(NAME)
+
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $@
 
@@ -18,3 +20,5 @@ fclean : clean
 	rm -rf $(NAME)
 
 re : fclean $(NAME)
+
+.PHONY: all clean fclean re

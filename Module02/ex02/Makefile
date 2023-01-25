@@ -9,21 +9,16 @@ CC = c++
 CFLAGS = -std=c++98 -Wall -Wextra -Werror
 
 all: $(NAME)
-.PHONY: all
 
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
 
 clean:
 	rm -f $(OBJ)
-.PHONY: clean
 
-fclean:
-	rm -f $(OBJ)
+fclean: clean
 	rm -f $(NAME)
-.PHONY: fclean
 
-re:
-	$(MAKE) fclean
-	$(MAKE) all
-.PHONY: re
+re : fclean $(NAME)
+
+.PHONY: all clean fclean re

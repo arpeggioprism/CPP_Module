@@ -8,6 +8,8 @@ CPPFLAGS = -Wall -Wextra -std=c++98
 
 NAME = bank
 
+all : $(NAME)
+
 $(NAME) : $(OBJS)
 	$(CC) $(CPPFLAGS) $(OBJS) -o $@
 

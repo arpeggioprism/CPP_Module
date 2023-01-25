@@ -8,6 +8,8 @@ CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
 NAME = phonebook
 
+all : $(NAME)
+
 $(NAME) : $(OBJS)
 	$(CC) $(CPPFLAGS) $(OBJS) -o $@
 

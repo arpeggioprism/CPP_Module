@@ -5,6 +5,7 @@ SRC = main.cpp Fixed.cpp
 OBJ = $(SRC:.cpp=.o)
 
 CXX = c++
+
 CXXFLAGS = -std=c++98 -Wall -Wextra -Werror
 
 all: $(NAME)
@@ -15,12 +16,9 @@ $(NAME): $(OBJ)
 clean:
 	rm -f $(OBJ)
 
-fclean:
-	rm -f $(OBJ)
+fclean: clean
 	rm -f $(NAME)
 
-re:
-	$(MAKE) fclean
-	$(MAKE) all
+re : fclean $(NAME)
 
 .PHONY: all clean fclean re
