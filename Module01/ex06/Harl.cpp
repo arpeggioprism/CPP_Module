@@ -24,6 +24,12 @@ void Harl::warning()
 {
 	std::cout << "[WARNING]\nI think I deserve to have some extra bacon for free. I've been coming for years whereas you started working here since last month." << std::endl;
 }
+
+void complainProblem()
+{
+	std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+}
+
 void Harl::complain(std::string level)
 {
 	static void (Harl::*fp[4])(void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
@@ -31,11 +37,22 @@ void Harl::complain(std::string level)
 
 	switch (level[0])
 	{
-		case 'D':	if (	flag == 1	||	level == "DEBUG"	)	{(this->*fp[0])();	flag = 1;}
-		case 'I':	if (	flag == 1	||	level == "INFO"		)	{(this->*fp[1])();	flag = 1;}
-		case 'W':	if (	flag == 1	||	level == "WARNING"	)	{(this->*fp[2])();	flag = 1;}
-		case 'E':	if (	flag == 1	||	level == "ERROR"	)	{(this->*fp[3])();	flag = 1;}	break;
-		default :	std::cout << \
-		"[ Probably complaining about insignificant problems ]" << std::endl; break;
+		case 'D':	if (flag == 1 || level == "DEBUG")
+						{(this->*fp[0])();	flag = 1;}
+					else
+						{complainProblem(); break;}
+		case 'I':	if (flag == 1 || level == "INFO")
+						{(this->*fp[1])();	flag = 1;}
+					else
+						{complainProblem(); break;}
+		case 'W':	if (flag == 1 || level == "WARNING")
+						{(this->*fp[2])();	flag = 1;}
+					else
+						{complainProblem(); break;}
+		case 'E':	if (flag == 1 || level == "ERROR")
+						{(this->*fp[3])();	flag = 1;}
+					else
+						{complainProblem(); break;}		break;
+		default :	complainProblem(); 					break;
 	}
 }
