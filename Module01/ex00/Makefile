@@ -4,14 +4,14 @@ SRCS = Zombie.cpp main.cpp newZombie.cpp
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-CC = c++
+CPPCOMPILER = c++
 
 OBJS = $(SRCS:.cpp=.o)
 
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	$(CC) $(CPPFLAGS) $(OBJS) -o $(NAME)
+	$(CPPCOMPILER) $(CPPFLAGS) $(OBJS) -o $(NAME)
 
 clean :
 	-@rm -f $(OBJS)

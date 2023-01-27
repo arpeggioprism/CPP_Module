@@ -1,17 +1,22 @@
 NAME = a.out
 
+SRC = main.cpp \
+	Animal.cpp \
+	Cat.cpp \
+	Dog.cpp \
+	WrongAnimal.cpp \
+	WrongCat.cpp
+
+OBJ = $(SRC:%.cpp=%.o)
+
 CXX = c++
 
 CXXFLAGS = -std=c++98 -Wall -Wextra -Werror
 
-SRC = main.cpp ClapTrap.cpp
-
-OBJ = $(SRC:.cpp=.o)
-
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
+	$(CXX) $(CXXFLAGS) -o  $@ $^
 
 clean:
 	rm -f $(OBJ)
