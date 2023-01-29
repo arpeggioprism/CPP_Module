@@ -2,14 +2,14 @@
 
 Cat::Cat()
 {
-	this->type = "Cat";
 	std::cout << "Cat constructor called" << std::endl;
+	this->type = "Cat";
 }
 
 Cat::Cat(const Cat &src)
 {
-	*this = src;
 	std::cout << "Cat copy constructor called" << std::endl;
+	*this = src;
 }
 
 Cat::~Cat()
@@ -19,9 +19,9 @@ Cat::~Cat()
 
 Cat &Cat::operator=(Cat const &rhs)
 {
+	std::cout << "Cat assignation operator called" << std::endl;
 	if (this != &rhs)
 		this->type = rhs.getType();
-	std::cout << "Cat assignation operator called" << std::endl;
 	return *this;
 }
 
