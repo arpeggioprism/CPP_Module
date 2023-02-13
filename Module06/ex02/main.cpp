@@ -1,8 +1,10 @@
 #include <iostream>
 
-#include "A.hpp"
-#include "B.hpp"
-#include "C.hpp"
+#include "Base.hpp"
+
+class A : public Base {};
+class B : public Base {};
+class C : public Base {};
 
 Base *generate(void)
 {
@@ -44,6 +46,7 @@ void identify(Base &p)
 	}
 	catch (std::exception &e)
 	{
+		std::cout << "Catch A exception" << std::endl;
 	}
 	try
 	{
@@ -53,6 +56,7 @@ void identify(Base &p)
 	}
 	catch (std::exception &e)
 	{
+		std::cout << "Catch B exception" << std::endl;
 	}
 	try
 	{
@@ -62,6 +66,7 @@ void identify(Base &p)
 	}
 	catch (std::exception &e)
 	{
+		std::cout << "Catch C exception" << std::endl;
 	}
 }
 

@@ -1,10 +1,7 @@
 NAME = a.out
 
 SRCS = main.cpp \
-	Base.cpp \
-	A.cpp \
-	B.cpp \
-	C.cpp \
+	Base.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

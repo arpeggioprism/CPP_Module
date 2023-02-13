@@ -19,7 +19,7 @@ public:
 
     ClapTrap &operator=(const ClapTrap &rhs);
 
-    virtual void attack(const std::string &target);
+    virtual void attack(const std::string &target) = 0;
     void takeDamage(unsigned int amount);
     void beRepaired(unsigned int amount);
 

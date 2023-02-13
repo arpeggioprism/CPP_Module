@@ -2,14 +2,12 @@
 #define SERIALIZATION_HPP
 
 #include <iostream>
-
-struct Data
-{
-	std::string _name;
-};
+#include "Data.hpp"
 
 class Serialization
 {
+private:
+
 public:
 	Serialization();
 	Serialization(Serialization const &src);
@@ -18,8 +16,6 @@ public:
 
 	uintptr_t serialize(Data *ptr);
 	Data *deserialize(uintptr_t raw);
-
-private:
 };
 
 #endif

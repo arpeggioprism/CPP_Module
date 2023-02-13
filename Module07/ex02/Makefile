@@ -1,8 +1,6 @@
 NAME = a.out
 
-SRCS = main.cpp \
-	Serialization.cpp \
-	Data.cpp
+SRCS = main.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

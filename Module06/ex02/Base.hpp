@@ -1,12 +1,12 @@
 #ifndef BASE_HPP
 #define BASE_HPP
 
-class Base {
-   public:
-    virtual ~Base();
+class Base
+{
+private:
 
-   private:
+public:
+	virtual ~Base();
 };
 
-#endif /* ************************************************************ BASE_H \
-        */
+#endif

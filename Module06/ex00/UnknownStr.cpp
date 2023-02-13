@@ -74,14 +74,9 @@ void UnknownStr::toFloat() const
 
 void UnknownStr::toInt() const
 {
-	if (isUndecided())
+	if (isUndecided() || _dvalue < INT_MIN || INT_MAX < _dvalue)
 	{
 		std::cout << "int: impossible" << std::endl;
-		return;
-	}
-	if (_dvalue < 0 || 126 < _dvalue)
-	{
-		std::cout << "char: impossible" << std::endl;
 		return;
 	}
 	int i = std::atoi(_str.c_str());
@@ -96,12 +91,7 @@ void UnknownStr::toDouble() const
 
 void UnknownStr::toChar() const
 {
-	if (isUndecided())
-	{
-		std::cout << "char: impossible" << std::endl;
-		return;
-	}
-	if (_dvalue < 0 || 126 < _dvalue)
+	if (isUndecided() || _dvalue < 0 || 126 < _dvalue)
 	{
 		std::cout << "char: impossible" << std::endl;
 		return;
