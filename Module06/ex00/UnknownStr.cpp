@@ -68,7 +68,7 @@ const char *UnknownStr::InvalidStrException::what() const throw()
 
 void UnknownStr::toFloat() const
 {
-	float f = std::strtof(_str.c_str(), NULL);
+	float f = static_cast<float>(std::atof(_str.c_str()));
 	std::cout << "float: " << f << (f == static_cast<int>(f) ? ".0f" : "f") << std::endl;
 }
 
@@ -85,7 +85,7 @@ void UnknownStr::toInt() const
 
 void UnknownStr::toDouble() const
 {
-	double d = std::strtod(_str.c_str(), NULL);
+	double d = std::atof(_str.c_str());
 	std::cout << "double: " << d << (d - static_cast<int>(d) == 0 ? ".0" : "") << std::endl;
 }
 

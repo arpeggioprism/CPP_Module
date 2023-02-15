@@ -7,6 +7,7 @@ class UnknownStr
 private:
 	std::string _str;
 	double _dvalue;
+
 	void toFloat() const;
 	void toInt() const;
 	void toChar() const;
