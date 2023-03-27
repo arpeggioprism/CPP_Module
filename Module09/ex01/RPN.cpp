@@ -49,6 +49,8 @@ RPN::RPN(std::string str)
 		errorExit("Error");
 }
 
+RPN::RPN() {}
+
 RPN::RPN(const RPN &rhs)
 : _stack(rhs._stack),_tmp(rhs._tmp) {}
 

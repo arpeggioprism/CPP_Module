@@ -7,6 +7,7 @@ UnknownStr::UnknownStr(const std::string &s) : _str(s), _dvalue(std::atof(_str.c
 {
 	isValid();
 }
+
 UnknownStr::UnknownStr(const UnknownStr &src) : _str(src._str), _dvalue(src._dvalue)
 {
 	*this = src;
