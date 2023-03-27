@@ -45,21 +45,19 @@ BitcoinExchange::BitcoinExchange(std::ifstream &file, std::ifstream &database_fi
 			continue ;
 
 		_value = _line.substr(_line.find(',') + 1);
-		if (_value.find_first_not_of("0123456789.", 0) != std::string::npos)
+		if (_value.find_first_not_of("0123456789.") != std::string::npos)
 			continue ;
-
 		_db[_key] = std::atof(_value.c_str());
 	}
 
 	size_t	len;
-	// Read file _line by _line and print the _value of the bitcoin at the _date of the transaction.
 	while (getline(file, _line))
 	{
 		if (_line.empty())
 			continue ;
 
 		_date = _line.substr(0, _line.find(' '));
-		_key	= Date(_date);
+		_key = Date(_date);
 
 		_value = _line.substr(_line.find('|') + 1);
 		len = _value.find_first_not_of(" \n\t\v\f\r");
@@ -94,10 +92,6 @@ BitcoinExchange::BitcoinExchange(std::ifstream &file, std::ifstream &database_fi
 		}
 	}
 }
-
-/*
-** ------------------------------- CONSTRUCTOR --------------------------------
-*/
 
 Date::Date() : _raw(), _year(INT_MAX), _month(INT_MAX), _day(INT_MAX), _validity(false)
 {}
@@ -143,20 +137,10 @@ Date::Date(std::string &str_date)
 Date::Date( const Date & src ) : _raw(src._raw), _year(src._year), _month(src._month), _day(src._day), _validity(src._validity)
 {}
 
-
-/*
-** -------------------------------- DESTRUCTOR --------------------------------
-*/
-
 Date::~Date()
 {}
 
-
-/*
-** --------------------------------- OVERLOAD ---------------------------------
-*/
-
-Date	&Date::operator=(Date const &rhs)
+Date	&Date::operator=(const Date &rhs)
 {
 	if ( this != &rhs )
 	{
@@ -169,12 +153,7 @@ Date	&Date::operator=(Date const &rhs)
 	return *this;
 }
 
-
-/*
-** --------------------------------- METHODS ----------------------------------
-*/
-
-bool		Date::operator<( Date const & rhs ) const
+bool		Date::operator<(const Date &rhs) const
 {
 	if (this->_validity == false || rhs.is_valid() == false)
 		return (false);
@@ -184,7 +163,7 @@ bool		Date::operator<( Date const & rhs ) const
 	return false;
 }
 
-bool		Date::operator>( Date const & rhs ) const
+bool		Date::operator>(const Date &rhs) const
 {
 	if (this->_validity == false || rhs.is_valid() == false)
 		return (false);
@@ -194,7 +173,7 @@ bool		Date::operator>( Date const & rhs ) const
 	return false;
 }
 
-bool		Date::operator==( Date const & rhs ) const
+bool		Date::operator==(const Date &rhs) const
 {
 	if (this->_validity == false || rhs.is_valid() == false)
 		return (false);
@@ -204,7 +183,7 @@ bool		Date::operator==( Date const & rhs ) const
 	return false;
 }
 
-bool		Date::operator<=( Date const & rhs ) const
+bool		Date::operator<=(const Date &rhs) const
 {
 	if (this->_validity == false || rhs.is_valid() == false)
 		return (false);
@@ -214,7 +193,7 @@ bool		Date::operator<=( Date const & rhs ) const
 	return false;
 }
 
-bool		Date::operator>=( Date const & rhs ) const
+bool		Date::operator>=(const Date &rhs) const
 {
 	if (this->_validity == false || rhs.is_valid() == false)
 		return (false);
@@ -224,7 +203,7 @@ bool		Date::operator>=( Date const & rhs ) const
 	return false;
 }
 
-bool		Date::operator!=( Date const & rhs ) const
+bool		Date::operator!=(const Date &rhs) const
 {
 	if (this->_validity == false || rhs.is_valid() == false)
 		return (false);
@@ -240,15 +219,7 @@ bool		Date::is_valid( void ) const
 	return (this->_validity);
 }
 
-
-/*
-** --------------------------------- ACCESSOR ---------------------------------
-*/
-
 std::string	Date::getRaw( void ) const
 {
 	return _raw;
 }
-
-
-/* ************************************************************************** */

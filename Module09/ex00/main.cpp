@@ -13,7 +13,7 @@ int	main(int ac, char **av)
 	if (!database.is_open())
 		return printError("Error: could not open csv data.");
 
-	BitcoinExchange(file, database);
+	BitcoinExchange btc(file, database);
 
 	return 0;
 }

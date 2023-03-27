@@ -17,16 +17,16 @@ class Date
 public:
 	Date(void);
 	Date(std::string &str_date);
-	Date(Date const & src);
+	Date(Date const &src);
 	~Date();
 
-	Date	&operator=( Date const & rhs );
-	bool	operator<( Date const & rhs ) const;
-	bool	operator>( Date const & rhs ) const;
-	bool	operator==( Date const & rhs ) const;
-	bool	operator<=( Date const & rhs ) const;
-	bool	operator>=( Date const & rhs ) const;
-	bool	operator!=( Date const & rhs ) const;
+	Date	&operator=(Date const &rhs);
+	bool	operator<(Date const &rhs) const;
+	bool	operator>(Date const &rhs) const;
+	bool	operator==(Date const &rhs) const;
+	bool	operator<=(Date const &rhs) const;
+	bool	operator>=(Date const &rhs) const;
+	bool	operator!=(Date const &rhs) const;
 	bool	is_valid( void ) const;
 
 	std::string	getRaw( void ) const;
