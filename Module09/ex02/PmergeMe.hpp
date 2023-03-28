@@ -32,8 +32,8 @@ public:
 	template <typename iter>
 	void insertionSort(iter begin, iter end);
 	void mergeInsertionSortList(std::list<unsigned long int> &lst);
-	void mergeInsertionSortDeque(std::deque<unsigned long int> &dqe);
-	void mergeDqe(const std::deque<unsigned long int> &left, const std::deque<unsigned long int> &right, std::deque<unsigned long int> &dqe);
+	void mergeInsertionSortDeque(std::deque<unsigned long int> &dq);
+	void mergeDeque(const std::deque<unsigned long int> &left, const std::deque<unsigned long int> &right, std::deque<unsigned long int> &dq);
 };
 
 #endif

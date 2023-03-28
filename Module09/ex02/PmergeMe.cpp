@@ -23,7 +23,7 @@ PmergeMe::PmergeMe(const int &ac, const char **&av)
 		{
 			iss >> _u;
 			if (errno == ERANGE)
-				errorExit("Error: Input is out of range");
+				errorExit("Error: input is out of range");
 			_dq.push_back(_u);
 			_lst.push_back(_u);
 		}
@@ -92,6 +92,7 @@ void PmergeMe::merge(const std::list<unsigned long int> &left, const std::list<u
 			*it++ = *iter_left++;
 		else
 			*it++ = *iter_right++;
+
 	while (iter_left != left.end())
 		*it++ = *iter_left++;
 	while (iter_right != right.end())
@@ -102,15 +103,15 @@ template <typename iter>
 void PmergeMe::insertionSort(iter begin, iter end)
 {
 	iter tmp;
-	iter check;
-	iter r(begin);
+	iter checker;
+	iter first(begin++);
 	for (; begin != end; ++begin)
 	{
-		check = begin;
-		tmp = check;
-		for (; check != r && (*--check) > *tmp;)
+		checker = begin;
+		tmp = checker;
+		while (checker != first && (*--checker) > *tmp)
 		{
-			std::swap(*check, *tmp);
+			std::swap(*checker, *tmp);
 			tmp--;
 		}
 	}
@@ -118,7 +119,7 @@ void PmergeMe::insertionSort(iter begin, iter end)
 
 void PmergeMe::mergeInsertionSortList(std::list<unsigned long int> &lst)
 {
-	if (lst.size() < 6)
+	if (lst.size() < 21)
 	{
 		insertionSort(lst.begin(), lst.end());
 		return;
@@ -143,18 +144,19 @@ void PmergeMe::mergeInsertionSortList(std::list<unsigned long int> &lst)
 }
 
 
-void PmergeMe::mergeInsertionSortDeque(std::deque<unsigned long int> &dqe)
+void PmergeMe::mergeInsertionSortDeque(std::deque<unsigned long int> &dq)
 {
-	if (dqe.size() <= 50)
+	if (dq.size() < 21)
 	{
-		insertionSort(dqe.begin(), dqe.end());
+		insertionSort(dq.begin(), dq.end());
 		return;
 	}
-	unsigned long int middle(dqe.size() / 2);
+
+	unsigned long int middle(dq.size() / 2);
 	std::deque<unsigned long int> left;
 	std::deque<unsigned long int> right;
 	unsigned long int l(0);
-	for (std::deque<unsigned long int>::iterator it(dqe.begin()); it != dqe.end(); it++)
+	for (std::deque<unsigned long int>::iterator it(dq.begin()); it != dq.end(); it++)
 	{
 		if (l < middle)
 		{
@@ -166,20 +168,21 @@ void PmergeMe::mergeInsertionSortDeque(std::deque<unsigned long int> &dqe)
 	}
 	mergeInsertionSortDeque(left);
 	mergeInsertionSortDeque(right);
-	mergeDqe(left, right, dqe);
+	mergeDeque(left, right, dq);
 }
 
-void PmergeMe::mergeDqe(const std::deque<unsigned long int> &left, const std::deque<unsigned long int> &right, std::deque<unsigned long int> &dqe)
+void PmergeMe::mergeDeque(const std::deque<unsigned long int> &left, const std::deque<unsigned long int> &right, std::deque<unsigned long int> &dq)
 {
 	std::deque<unsigned long int>::const_iterator iter_left(left.begin());
 	std::deque<unsigned long int>::const_iterator iter_right(right.begin());
-	std::deque<unsigned long int>::iterator it(dqe.begin());
+	std::deque<unsigned long int>::iterator it(dq.begin());
 
 	while (iter_left != left.end() && iter_right != right.end())
 		if (*iter_left < *iter_right)
 			*it++ = *iter_left++;
 		else
 			*it++ = *iter_right++;
+
 	while (iter_left != left.end())
 		*it++ = *iter_left++;
 	while (iter_right != right.end())

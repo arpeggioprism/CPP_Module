@@ -18,9 +18,9 @@ public:
 	Date(void);
 	Date(std::string &str_date);
 	Date(Date const &src);
+	Date	&operator=(Date const &rhs);
 	~Date();
 
-	Date	&operator=(Date const &rhs);
 	bool	operator<(Date const &rhs) const;
 	bool	operator>(Date const &rhs) const;
 	bool	operator==(Date const &rhs) const;
